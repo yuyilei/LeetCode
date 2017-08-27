@@ -4,7 +4,7 @@ public:
         if (s.size() <= 1  )
             return s.size() ; 
         int i , j , k , l = s.size() , sum = 0 ; 
-        int ** pb = new int *[l] ; 
+        int ** pb = new int *[l] ;  // 非常坑爹，bool型的false是127不是0.所以会错，还是用int 
         int * pc = new int [l] ;  // 表示 pc[i] == 1 表示存在长度为i的子字符串 
         for ( i = 0 ; i < l ; i++ ) { 
             pb[i] = new int [l] ; 
