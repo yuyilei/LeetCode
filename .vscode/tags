@@ -1,0 +1,41 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+001_Two_Sum.py	../Python/001_Two_Sum.py	1;"	kind:file	line:1
+002_Add_Two_Numbers.py	../Python/002_Add_Two_Numbers.py	1;"	kind:file	line:1
+009_Palindrome_Number.py	../Python/009_Palindrome_Number.py	1;"	kind:file	line:1
+013_Roman_to_Integer.py	../Python/013_Roman_to_Integer.py	1;"	kind:file	line:1
+014_Longest_Common_Prefix.py	../Python/014_Longest_Common_Prefix.py	1;"	kind:file	line:1
+020_Valid_Parentheses.py	../Python/020_Valid_Parentheses.py	1;"	kind:file	line:1
+021_Merge_Two_Sorted_Lists.py	../Python/021_Merge_Two_Sorted_Lists.py	1;"	kind:file	line:1
+028_Implement_strStr.py	../Python/028_Implement_strStr.py	1;"	kind:file	line:1
+035_Search_Insert_Position.py	../Python/035_Search_Insert_Position.py	1;"	kind:file	line:1
+083_Remove_Duplicates_from_Sorted_List.py	../Python/083_Remove_Duplicates_from_Sorted_List.py	1;"	kind:file	line:1
+136_Single_Number.py	../Python/136_Single_Number.py	1;"	kind:file	line:1
+Solution	../Python/001_Two_Sum.py	/^class Solution:$/;"	kind:class	line:1
+Solution	../Python/002_Add_Two_Numbers.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/009_Palindrome_Number.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/013_Roman_to_Integer.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/014_Longest_Common_Prefix.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/020_Valid_Parentheses.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/021_Merge_Two_Sorted_Lists.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/028_Implement_strStr.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/035_Search_Insert_Position.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/083_Remove_Duplicates_from_Sorted_List.py	/^class Solution(object):$/;"	kind:class	line:1
+Solution	../Python/136_Single_Number.py	/^class Solution(object):$/;"	kind:class	line:11
+Solution	../Python/136_Single_Number.py	/^class Solution(object):$/;"	kind:class	line:2
+addTwoNumbers	../Python/002_Add_Two_Numbers.py	/^    def addTwoNumbers(self, l1, l2): $/;"	kind:member	line:2
+deleteDuplicates	../Python/083_Remove_Duplicates_from_Sorted_List.py	/^    def deleteDuplicates(self, head):$/;"	kind:member	line:2
+isPalindrome	../Python/009_Palindrome_Number.py	/^    def isPalindrome(self, x):$/;"	kind:member	line:2
+isValid	../Python/020_Valid_Parentheses.py	/^    def isValid(self, s):$/;"	kind:member	line:2
+longestCommonPrefix	../Python/014_Longest_Common_Prefix.py	/^    def longestCommonPrefix(self, strs):$/;"	kind:member	line:2
+mergeTwoLists	../Python/021_Merge_Two_Sorted_Lists.py	/^    def mergeTwoLists(self, l1, l2):$/;"	kind:member	line:2
+romanToInt	../Python/013_Roman_to_Integer.py	/^    def romanToInt(self, s):$/;"	kind:member	line:2
+searchInsert	../Python/035_Search_Insert_Position.py	/^    def searchInsert(self, nums, target):$/;"	kind:member	line:2
+singleNumber	../Python/136_Single_Number.py	/^    def singleNumber(self, nums): $/;"	kind:member	line:12
+singleNumber	../Python/136_Single_Number.py	/^    def singleNumber(self, nums):$/;"	kind:member	line:3
+strStr	../Python/028_Implement_strStr.py	/^    def strStr(self, haystack, needle):$/;"	kind:member	line:2
+twoSum	../Python/001_Two_Sum.py	/^    def twoSum(self, nums, target):$/;"	kind:member	line:2
