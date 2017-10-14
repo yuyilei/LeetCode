@@ -20,6 +20,7 @@ public:
     }
 };
 
+// 解法二: 
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
