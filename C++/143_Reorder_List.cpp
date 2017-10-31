@@ -28,7 +28,7 @@ public:
             last = res->next ; 
             res = res->next->next ; 
             tmp = tmp->next ; 
-        }
+        }  
         if ( len % 2 )
             res->next = NULL ; 
         else 
