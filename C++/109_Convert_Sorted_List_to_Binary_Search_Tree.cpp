@@ -23,7 +23,7 @@ public:
     TreeNode *createBST(ListNode *s, ListNode *e){
         if ( s == e ) return NULL ; 
         ListNode *fast = s , *slow = s ; 
-        while ( fast != e && fast->next != e ) {
+        while ( fast != e && fast->next != e ) {  // slow是原先的中点
             fast = fast->next->next ; 
             slow = slow->next ; 
         }
