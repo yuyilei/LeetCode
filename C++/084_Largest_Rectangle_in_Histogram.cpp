@@ -23,3 +23,25 @@ public:
         return res ; 
     }
 };
+
+// 简洁一点的写法 
+
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        stack<int> index;
+        heights.push_back(0); 
+        int i = 0, res = 0;
+        while ( i < heights.size() ){
+            if ( index.empty() || heights[index.top()] <= heights[i] ){
+                index.push(i++); 
+            } 
+            else{
+                int t = index.top(); 
+                index.pop(); 
+                res = max(res,heights[t]*(index.empty()?i:i-index.top()-1));
+            }
+        }
+        return res;
+    }
+};
