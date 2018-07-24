@@ -1,3 +1,6 @@
+/*
+“有序” +  查找 --> 二分法 
+*/
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
