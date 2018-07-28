@@ -1,3 +1,10 @@
+/*
+动态规划：
+dp[i] 表示前 i 个字母的组成的字符串能不能由 dict里面 单词组成 
+dp[0]初始化为 true 
+计算 dp[i]:
+在计算dp[i]的时候，已知dp[0],dp[1],…,dp[i-1],如果以i为结尾的j~i子串是满足条件的，并且0~j的子串也是在字典中的，那么dp[i]就是true。 
+*/
 class Solution {
 public:
     static bool inDict(string s, vector<string> wordDict){
