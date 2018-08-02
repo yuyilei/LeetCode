@@ -58,6 +58,7 @@ func ladderL·ength(beginWord string, endWord string, wordList []string) int {
 通过，利用 set + queue，go里面没有 set，就用 map， queue用 list  代替
 不知都是是go不方便还是我不熟练，没有while真的很难受啊。。 
 */
+import "container/list" 
 func ladderLength(beginWord string, endWord string, wordList []string) int {
     visited := make(map[string]bool)  // 是否访问过这个单词
     has := make(map[string]bool)      // slice没法查看一个元素是否存在，就用map
