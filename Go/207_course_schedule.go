@@ -1,3 +1,5 @@
+/*
+*/
 
 func find(source []int, data int) int {
     for index, each := range source {
@@ -42,4 +44,50 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
         }
     }
     return true
+}
+
+
+/*
+*/
+var graph [][]bool
+var vis []int
+func canFinish(numCourses int, prerequisites [][]int) bool {
+    graph = make([][]bool,numCourses)
+    vis = make([]int,numCourses)
+    for i := 0 ; i < numCourses ; i++ {
+        graph[i] = make([]bool,numCourses) 
+    }
+    for _, each := range prerequisites {
+        graph[each[1]][each[0]] = true  
+    }
+    return topoSort() 
+}
+
+func topoSort() bool { 
+    for i := 0 ; i < len(graph) ; i++ {
+        if  vis[i] == 0 {
+            if !dis(i) {
+                return false 
+            }
+        } 
+    }
+    return true 
+}
+
+func dis(n int) bool {
+    vis[n] = -1 
+    for i := 0 ; i < len(graph[n]) ; i++ {
+        if !graph[n][i] {
+            continue 
+        }  
+        if vis[i] == -1 {
+            return false
+        } else if vis[i] == 0 {
+            if !dis(i) {
+                return false 
+            }
+        }
+    }
+    vis[n] = 1 
+    return true 
 }
