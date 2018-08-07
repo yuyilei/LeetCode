@@ -1,4 +1,5 @@
 /*
+一：
 */
 
 func find(source []int, data int) int {
@@ -48,6 +49,7 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 
 
 /*
+二：DFS 
 */
 var graph [][]bool
 var vis []int
@@ -75,12 +77,12 @@ func topoSort() bool {
 }
 
 func dis(n int) bool {
-    vis[n] = -1 
+    vis[n] = -1                                            // -1表示当前点正在被访问 
     for i := 0 ; i < len(graph[n]) ; i++ {
         if !graph[n][i] {
             continue 
         }  
-        if vis[i] == -1 {
+        if vis[i] == -1 {                                  // 表示这个点进入了两次，出现了环
             return false
         } else if vis[i] == 0 {
             if !dis(i) {
@@ -88,6 +90,46 @@ func dis(n int) bool {
             }
         }
     }
-    vis[n] = 1 
+    vis[n] = 1                                             // 1表示这个点访问过了  
+    return true 
+}
+
+/*
+BFS 
+*/
+var indegree []int
+var graph [][]bool 
+func canFinish(numCourses int, prerequisites [][]int) bool {
+    indegree = make([]int,numCourses)
+    graph = make([][]bool,numCourses)
+    for i := 0 ; i < numCourses ; i++ {
+        graph[i] = make([]bool,numCourses)
+    }
+    for _, each := range prerequisites {
+        graph[each[1]][each[0]] = true  
+        indegree[each[0]]++ 
+    }
+    return bfstopoSort()
+}
+
+func bfstopoSort() bool {
+    var i, j int 
+    n := len(indegree)
+    for i = 0 ; i < n ; i++ {
+        for j = 0 ; j < n ; j++ {
+            if indegree[j] == 0 {
+                indegree[j]-- 
+                for k := 0 ; k < n ; k++ {
+                    if  graph[j][k] {
+                        indegree[k]--
+                    } 
+                }
+                break 
+            }
+        }
+        if j == n {
+            return false
+        }
+    }
     return true 
 }
