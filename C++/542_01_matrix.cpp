@@ -1,3 +1,6 @@
+/*
+广度优先，从当前点向周围扩散，长度从0开始，直到遇到为0的格子 
+*/
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
