@@ -31,6 +31,12 @@ randomSet.insert(2);
 randomSet.getRandom();
 */
 
+
+/*
+设计一个vector存储数字，一个map做值与地址之间的映射
+插入的时候，先检查map里面有没有
+删除的时候，先检查map里面，如果有，在vector中，把要删除的值与最后一个值交换位置，删除最后一个值；同时，改变map中的位置
+*/
 class RandomizedSet {
 public:
     /** Initialize your data structure here. */
