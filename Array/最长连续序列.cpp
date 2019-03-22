@@ -32,3 +32,31 @@ public:
         return res;
     }
 };
+
+
+// 使用 map，不删除元素，一边向两边扩散，一边将元素标记为已统计 
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        map<int, int> helper;
+        int res = 0;
+        for ( int num : nums ) 
+            helper[num] = 1;
+        for ( int num : nums ) {
+            if ( helper[num] == -1 ) 
+                continue;
+            int left = num - 1, right = num + 1;
+            helper[num] = -1;
+            while ( helper.count(left) != 0 && helper[left] != -1 ) {
+                helper[left] = -1;
+                left--;
+            }
+            while ( helper.count(right) != 0 && helper[right] != -1 ) {
+                helper[right] = -1;
+                right++;
+            }
+            res = max(res, right-left-1);
+        }
+        return res;
+    }
+};

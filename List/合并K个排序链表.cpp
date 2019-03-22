@@ -63,10 +63,11 @@ public:
 
 // 法二：
 // 使用优先队列
-struct cmp {
+struct cmp {   // 默认重载less
     bool operator() (const ListNode* a, const ListNode* b)
     {
         return a->val > b->val;
+        // 返回true时，a的优先级低于b的优先级（a排在b的后面） 
     }
 };
 
