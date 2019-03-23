@@ -21,7 +21,7 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if ( !root || root->val == p->val || root->val == q->val )
+        if ( !root || root->val == p->val || root->val == q->val ) // 本质是搜索root有没有与其中一个节点相等 
             return root;
         TreeNode* left = lowestCommonAncestor(root->left,p,q);
         TreeNode* right = lowestCommonAncestor(root->right,p,q);

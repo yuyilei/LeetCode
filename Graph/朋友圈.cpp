@@ -59,41 +59,64 @@ private:
 };
 
 
-// 并查集
-// 压缩路径
 class Solution {
 public:
     int findCircleNum(vector<vector<int>>& M) {
-        int res = 0;
         int len = M.size();
+        vector<bool> visited (len, false);
+        int res = 0;
         for ( int i = 0 ; i < len ; i++ ) {
-            root[i] = i;
-        }
-        for ( int i = 0 ; i < len ; i++ ) {
-            for ( int j = 0 ; j < len ; j++ ) {
-                if ( i != j && M[i][j] == 1 ) {
-                    Union(i,j);
-                }
-            }
-        }
-        for ( int i = 0 ; i < len ; i++ ) {
-            if ( root[i] == i ) {
+            if ( !visited[i] ) {
                 res++;
+                dfs(M, i, visited);
             }
         }
         return res;
     }
 private:
-    int root[201];
-    void Union(int x, int y) {
-        x = findRoot(x);
-        y = findRoot(y);
-        if ( x != y )
-            root[x] = y;
+    void dfs(vector<vector<int>> &M, int x, vector<bool> &visited) {
+        visited[x] = true;
+        for ( int i = 0 ; i < M.size() ; i++ ) {
+            if ( !visited[i] && M[x][i] == 1 ) {
+                dfs(M, i, visited);
+            }
+        }
     }
-    int findRoot(int x) {
-        if ( root[x] != x )
-            root[x] = findRoot(root[x]);
-        return root[x];
+};
+
+// 并查集
+// 压缩路径
+
+class Solution {
+public:
+    int findCircleNum(vector<vector<int>>& M) {
+        int len = M.size();
+        int res = 0;
+        vector<int> f (len, 0);
+        for ( int i = 0 ; i < len ; i++ ) 
+            f[i] = i;
+        for ( int i = 0 ; i < len ; i++ ) {
+            for ( int j = i + 1 ; j < len ; j++ ) {
+                if ( M[i][j] ) {
+                    merge(f, i, j);
+                }
+            }
+        }
+        for ( int i = 0 ; i < len ; i++ ) 
+            if ( f[i] == i ) 
+                res++;
+        return res;
+    }
+private:
+    void merge(vector<int> &f, int x, int y) {
+        int rootx = get_root(f, x);
+        int rooty = get_root(f, y);
+        if  ( rootx != rooty )
+            f[rootx] = rooty;
+    }
+    int get_root(vector<int> &f, int x) {
+        while ( f[x] != x ) 
+            x = f[x];
+        return f[x];
     }
 };
