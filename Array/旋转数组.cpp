@@ -40,3 +40,25 @@ public:
         
     }
 };
+
+// 其实还是一样的
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        if ( nums.empty() ) 
+            return;
+        int len = nums.size();
+        k = k % len;
+        if ( k == 0 )
+            return;
+        Swap(nums, 0, len-1);
+        Swap(nums, 0, k-1);
+        Swap(nums, k, len-1);
+    }
+private:
+    void Swap(vector<int>& nums, int s, int e) {
+        while ( s < e ) {
+            swap(nums[s++], nums[e--]);
+        }
+    }
+};
