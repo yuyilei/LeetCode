@@ -54,12 +54,12 @@ public:
         while ( now || !s.empty() ) {
             while ( now ) {
                 s.push(now);
-                now = now->left;
+                now = now->left;            // 先把左子树遍历完 
             }
-            TreeNode* tmp = s.top();
-            s.pop();
-            sorted.push_back(tmp->val);
-            now = tmp->right;
+            TreeNode* tmp = s.top();        // 当前节点 
+            s.pop();    
+            sorted.push_back(tmp->val);     
+            now = tmp->right;               // 右子树
         }
     }
 };

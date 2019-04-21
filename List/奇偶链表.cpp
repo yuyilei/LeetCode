@@ -34,3 +34,39 @@ public:
         return oddstart->next;
     }
 };
+
+
+// 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if ( !head || !head->next || !head->next->next )
+            return head;
+        ListNode *odd_head = new ListNode (0);
+        ListNode *even_head = new ListNode (0);
+        ListNode *odd = odd_head, *even = even_head;
+        for ( int i = 1 ; head ; i++ ) {
+            if ( i % 2 ) {
+                odd->next = head;
+                odd = odd->next;
+            }
+            else {
+                even->next = head;
+                even = even->next;
+            }
+            ListNode *next = head->next;
+            head->next = NULL;
+            head = next;
+        }
+        odd->next = even_head->next;
+        return odd_head->next;
+    }
+};

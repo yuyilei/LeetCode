@@ -27,13 +27,13 @@ public:
     ListNode* sortList(ListNode* head) {
         if ( !head || !head->next )
             return head;
-        ListNode *slow = head, *fast = head, *last = head;
+        ListNode *slow = head, *fast = head, *last = head;  // 用快慢指针找到中间节点 
         while ( fast && fast->next ) {
             last = slow;
             slow = slow->next;
             fast = fast->next->next;
         }
-        last->next = NULL;
+        last->next = NULL;                                  // 截断 
         return mergeList(sortList(head),sortList(slow));
     }
 private:
