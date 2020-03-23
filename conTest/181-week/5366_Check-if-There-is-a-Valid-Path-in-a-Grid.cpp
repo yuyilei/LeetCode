@@ -88,3 +88,49 @@ private:
         return dfs(grid, tx, ty, pipe[next][cur]);
     }
 };
+
+
+// if-case
+class Solution {
+public:
+    bool hasValidPath(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int m = grid[0].size();
+        int x = 0, y = 0;
+        while (true) {
+            if (x==n-1 && y==m-1) return true;
+            if (grid[x][y] == 1) {
+                grid[x][y] = 0;
+                if (y-1>=0 && (grid[x][y-1]==1 || grid[x][y-1]==4 || grid[x][y-1]==6)) y--;
+                else if (y+1<m && (grid[x][y+1]==1 || grid[x][y+1]==3 || grid[x][y+1]==5)) y++;
+                else break;
+            } else if (grid[x][y] == 2) {
+                grid[x][y] = 0;
+                if (x-1>=0 && (grid[x-1][y]==2 || grid[x-1][y]==3 || grid[x-1][y]==4)) x--;
+                else if (x+1<n && (grid[x+1][y]==2 || grid[x+1][y]==5 || grid[x+1][y]==6)) x++;
+                else break;
+            } else if (grid[x][y] == 3) {
+                grid[x][y] = 0;
+                if(y-1>=0 && (grid[x][y-1]==1 || grid[x][y-1]==4 || grid[x][y-1]==6)) y--;
+                else if(x+1<n && (grid[x+1][y]==2 || grid[x+1][y]==5 || grid[x+1][y]==6)) x++;
+                else break;
+            } else if(grid[x][y] == 4){
+                grid[x][y] = 0;
+                if(x+1<n && (grid[x+1][y]==2 || grid[x+1][y]==5 || grid[x+1][y]==6)) x++;
+                else if(y+1<m && (grid[x][y+1]==1 || grid[x][y+1]==3 || grid[x][y+1]==5)) y++;
+                else break;
+            } else if(grid[x][y] == 5){
+                grid[x][y] = 0;
+                if(x-1>=0 && (grid[x-1][y]==2 || grid[x-1][y]==3 || grid[x-1][y]==4)) x--;
+                else if(y-1>=0 && (grid[x][y-1]==1 || grid[x][y-1]==4 || grid[x][y-1]==6)) y--;
+                else break;
+            }else if (grid[x][y] == 6){
+                grid[x][y] = 0;
+                if( y+1<m && (grid[x][y+1]==1 || grid[x][y+1]==3 || grid[x][y+1]==5)) y++;
+                else if(x-1>=0 && (grid[x-1][y]==2 || grid[x-1][y]==3 || grid[x-1][y]==4) ) x--;
+                else break;
+            }
+        }
+        return false;
+    }
+};
