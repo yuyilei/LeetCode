@@ -53,6 +53,7 @@ ranges.length == n + 1
  * 对于当前水龙头,ranges[i]，可以覆盖的范围为 i-ranges[i], i+ranges[i] 记为left，right
  * 对于left+1到right之间，如果使用了这个水龙头，则有 dp[j] = dp[left]+1
  * 所以状态转移方程，dp[j] = min(dp[j], dp[left]+1)
+ * 时间复杂度：O(N * maxRange), maxrange 为所有水龙头中最大的灌溉区域长度。
  */
 
 class Solution {
