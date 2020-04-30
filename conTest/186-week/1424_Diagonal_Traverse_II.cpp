@@ -55,3 +55,39 @@ public:
         return res;
     }
 };
+
+
+// 广度优先
+class Solution {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& nums) {
+        if (nums.empty() || nums[0].empty())
+            return {};
+        vector<int> res;
+        queue<pair<int,int>> q;
+        int n = nums.size();
+        q.push({0,0});
+        while (!q.empty()) {
+            int len = q.size();
+            set<int> vis;
+            for (int i = 0; i < len; i++) {
+                pair<int, int> p = q.front();
+                q.pop();
+                res.push_back(nums[p.first][p.second]);
+                int tx = p.first + 1;
+                int ty = p.second;
+                if (n > tx && nums[tx].size() > ty && vis.find(ty) == vis.end()) {
+                    q.push({tx, ty});
+                    vis.insert(ty);
+                }
+                tx = p.first;
+                ty = p.second + 1;
+                if (n > tx && nums[tx].size() > ty && vis.find(ty) == vis.end()) {
+                    q.push({tx, ty});
+                    vis.insert(ty);
+                }
+            }
+        }
+        return res;
+    }
+};
