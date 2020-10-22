@@ -56,24 +56,44 @@ ai != bi
 
 /*
   并查集
+  demo:
+
+  def init():
+    for x in nodes:
+        x.parent = x
+
+  def Union(x, y):
+  	x_root = find_root(x.parent)
+    y_root = find_root(y.parent)
+    if x_root != y_root:
+        x.parent = y_root                // 合并两个节点
+
+  def find_root(x):
+    if x.parent != x:                     // 如果不是根节点，需要将此节点连接到根节点上
+        x.parent = find_root(x.parent)    // 压缩路径，让路径上的每个节点都直接连接在根结点上
+    return x.parent
+
+  def is_same(x, y):
+    return find_root(x) == find_root(y)
 */
+
 
 class Solution {
 public:
     vector<bool> areConnected(int n, int threshold, vector<vector<int>>& queries) {
-        root.resize(n+1);
+        parent.resize(n+1);
         for (int i = 1; i <= n; i++)
-            root[i] = i;
+            parent[i] = i;
         for (int i = threshold+1; i <= n; i++) {
             for (int j = 2*i; j <= n; j += i) {
-                int i_root = find(root[i]);
-                int j_root = find(root[j]);
-                root[j_root] = i_root;
+                int i_root = find_root(parent[i]);
+                int j_root = find_root(parent[j]);
+                parent[j_root] = i_root;
             }
         }
         vector<bool> res;
         for (vector<int> q: queries) {
-            if (find(q[0]) == find(q[1]))
+            if (find_root(q[0]) == find_root(q[1]))
                 res.push_back(true);
             else
                 res.push_back(false);
@@ -81,10 +101,10 @@ public:
         return res;
     }
 private:
-    vector<int> root;
-    int find(int x) {
-        if (x == root[x])
-            return x;
-        return find(root[x]);
+    vector<int> parent;
+    int find_root(int x) {
+        if (x != parent[x])
+            parent[x] = find_root(parent[x]);
+        return parent[x];
     }
 };
